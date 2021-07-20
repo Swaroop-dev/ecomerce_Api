@@ -8,11 +8,6 @@ const { getUserById, getUser, userPurchaseList } = require("../controllers/user"
 //getting user id from the url
 router.param("userId",getUserById)
 
-router.get("/user/:userId",
-           isSignedIn,
-           isAuthenticated,
-           getUser
-          )
 
 router.get("order/:orderId",
             isSignedIn,
