@@ -25,18 +25,21 @@ const userSchema = new mongoose.Schema({
         unique:true,
         trim:true
     },
-    encry_password: {               //password is encrypted by using virtual                            
-                                    // methods and cryptographic func
+     //password is encrypted by using virtual                            
+    // methods and cryptographic func
+    encry_password: {              
         type:String,
     },
-    salt:{                      //unique ids from uuid library
+    //unique ids from uuid library
+    salt:{                     
         type:String
     },
     role:{
         type:Number,
         default:0
     },
-    purchases:{                      //past orders
+    //past orders
+    purchases:{                      
         type:Array,
         default:[]
     }
@@ -55,14 +58,15 @@ userSchema
      },
      {timestamps:true})
 
-userSchema.methods={
-    authenticate:function(plainpassword){                   //auhtenticating user
+userSchema.methods = {
+     //auhtenticating user
+    authenticate:function(plainpassword){                  
         return this.encry_password===this.securepassword(plainpassword)
 
     },
 
-
-    securepassword:function(plainpassword){                 //encrypting password
+ //encrypting password
+    securepassword:function(plainpassword){                
         if(!plainpassword) return ""
         try {
             return crypto.createHmac('sha256', this.salt)
