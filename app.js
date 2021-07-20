@@ -6,6 +6,8 @@ const cookieParser=require("cookie-parser")
 require('dotenv').config()
 
 
+const authRoutes=require("./routes/auth")
+
 const app=express()
 const port=process.env.PORT||8000
 
@@ -25,6 +27,8 @@ mongoose.connect(process.env.DATABASE, {
 app.use(bodyParser.json())
 app.use(cors())
 app.use(cookieParser())
+
+app.use("/api",authRoutes)
 
 app.listen(port,()=>{
   console.log(`app is running at port number ${port}`)})
