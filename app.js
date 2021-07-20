@@ -6,7 +6,8 @@ const cookieParser=require("cookie-parser")
 require('dotenv').config()
 
 
-const authRoutes=require("./routes/auth")
+const authRoutes = require("./routes/auth")
+const userRoutes=require("./routes/user")
 
 const app=express()
 const port=process.env.PORT||8000
@@ -28,7 +29,8 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(cookieParser())
 
-app.use("/api",authRoutes)
+app.use("/api", authRoutes)
+app.use("/api",userRoutes)
 
 app.listen(port,()=>{
   console.log(`app is running at port number ${port}`)})

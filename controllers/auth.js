@@ -82,6 +82,9 @@ exports.isAuthenticated = (req, res, next) => {
   next();
 };
 
+//if role==0 ---normal user 
+//else user is admin
+
 exports.isAdmin = (req, res, next) => {
   if (req.profile.role === 0) {
     return res.status(403).json({
