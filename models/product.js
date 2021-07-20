@@ -1,6 +1,5 @@
 const mongoose=require("mongoose")
-const category = require("./category")
-const {ObjectId}=mongoose.Schema
+
 
 const ProductSchema=new mongoose.Schema({
     name:{
@@ -30,11 +29,7 @@ const ProductSchema=new mongoose.Schema({
        type:Buffer,
        contentType:String
     },
-//any category that product might belong to     
-    category:{
-        type:ObjectId,
-        ref:category
-    }
+
 },{timestamps:true})
 
 

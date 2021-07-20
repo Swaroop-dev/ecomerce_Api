@@ -1,5 +1,4 @@
-const {Order,ProductCart}=require("../models/order")
-
+const {Order}=require("../models/order")
 
 exports.getOrderById=(req,res,next,id)=>{
     Order.findById(id)
@@ -13,8 +12,7 @@ exports.getOrderById=(req,res,next,id)=>{
         req.order=order
         next()
     })
-
-    
+   
 }
 
 exports.createOrder=(req,res)=>{

@@ -29,9 +29,9 @@ exports.createProduct = (req, res) => {
     }
 
    
-    const { name, description, price, category, stock } = fields;
+    const { name, description, price, stock } = fields;
 
-    if (!name || !description || !category || !price || !stock) {
+    if (!name || !description  || !price || !stock) {
       return res.status(400).json({
         error: "all necessary details for the product is not available",
       });
